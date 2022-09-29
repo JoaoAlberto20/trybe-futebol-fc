@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import getTeamController from '../modules/teams/use-cases/getTeam';
-import listAllTeamsController from '../modules/teams/use-cases/listAllTeams';
+import getTeamController from '../modules/matches/use-cases/getTeam';
+import listAllTeamsController from '../modules/matches/use-cases/listAllTeams';
 
 const TeamRouter = Router();
 

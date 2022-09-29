@@ -3,9 +3,9 @@ import ensureAuthenticated from '../middlewares/ensureAuthenticate';
 import authenticateController from '../modules/users/use-cases/authenticateUser';
 import validateUserController from '../modules/users/use-cases/validateUser';
 
-const LoginRoutes = Router();
+const LoginRouter = Router();
 
-LoginRoutes.post('/', authenticateController.handle);
-LoginRoutes.get('/validate', ensureAuthenticated, validateUserController.handle);
+LoginRouter.post('/', authenticateController.handle);
+LoginRouter.get('/validate', ensureAuthenticated, validateUserController.handle);
 
-export default LoginRoutes;
+export default LoginRouter;
