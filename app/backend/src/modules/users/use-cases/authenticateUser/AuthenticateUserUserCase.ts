@@ -1,6 +1,6 @@
 import { compare } from 'bcryptjs';
-import AppError from '../../../../error/AppError';
 import signUser from '../../../../config/token';
+import AppError from '../../../../error/AppError';
 import Login from '../../entities/Login';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 
@@ -10,7 +10,7 @@ interface IRequest {
 }
 
 export default class AuthenticateUserUserUseCase {
-  constructor(private _userRepository: IUsersRepository) {}
+  constructor(private _userRepository: IUsersRepository) { }
 
   async execute({ email, password }: IRequest): Promise<string> {
     const login = new Login(email, password);

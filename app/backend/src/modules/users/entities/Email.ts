@@ -10,7 +10,7 @@ export default class Email {
 
   private validateEmail() {
     const email = this._value;
-    const emailRegex = /\S+@\S+\.\S/;
+    const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     const isEmailValid = emailRegex.test(email);
 
     if (email === '') {
@@ -18,7 +18,7 @@ export default class Email {
     }
 
     if (!isEmailValid) {
-      throw new AppError(' "Incorrect email or password"');
+      throw new AppError('Incorrect email or password', 401);
     }
   }
 

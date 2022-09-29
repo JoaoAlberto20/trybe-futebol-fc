@@ -16,7 +16,7 @@ export default class Password {
     }
 
     if (password.length < 6) {
-      throw new AppError('Incorrect email or password');
+      throw new AppError('Password must not be at least 6 characters', 400);
     }
   }
 
