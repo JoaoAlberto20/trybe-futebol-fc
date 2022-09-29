@@ -5,17 +5,17 @@ import { IUsersRepository } from '../IUsersRepository';
 export default class UsersRepository implements IUsersRepository {
   private _repository = UserModel;
 
-  async findByEmail(email: string): Promise<IUser> {
+  async findByEmail(email: string): Promise<IUser | null> {
     const user = await this._repository.findOne({
       where: {
         email,
       },
     });
-    return user as IUser;
+    return user;
   }
 
-  async findById(id: number): Promise<IUser> {
+  async findById(id: number): Promise<IUser | null> {
     const user = await this._repository.findByPk(id);
-    return user as IUser;
+    return user;
   }
 }
