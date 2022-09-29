@@ -17,12 +17,12 @@ export default class AuthenticateUserUserUseCase {
 
     const user = await this._userRepository.findByEmail(email);
 
-    if (!user) throw new AppError('Password or email invalid!', 401);
+    if (!user) throw new AppError('Incorrect email or password', 401);
 
     const passwordMatch = await compare(login.password, user.password);
 
     if (!passwordMatch) {
-      throw new AppError('Password or email invalid!', 401);
+      throw new AppError('Incorrect email or password', 401);
     }
 
     const token = signUser(user.email, user.id as number);
