@@ -6,9 +6,15 @@ export interface IRequest {
   homeTeamGoals: number
   awayTeamGoals: number
 }
+
+export interface IRequestUpdate {
+  homeTeamGoals: number
+  awayTeamGoals: number
+}
 export interface IMatchesRepository {
   findAll(): Promise<IMatches[]>
   findByInProgress(inProgress: boolean): Promise<IMatches[]>
   create(data: IRequest): Promise<IMatches>
-  update(id: number): Promise<void>
+  finallyMatch(id: number): Promise<void>
+  updateMatch(id: number, data: IRequestUpdate): Promise<void>
 }

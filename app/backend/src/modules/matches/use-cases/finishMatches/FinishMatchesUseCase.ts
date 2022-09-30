@@ -4,6 +4,6 @@ export default class FinishMatchesUseCase {
   constructor(private _matchesRepository: IMatchesRepository) {}
 
   async execute(id: number): Promise<void> {
-    await this._matchesRepository.update(id);
+    await this._matchesRepository.finallyMatch(id);
   }
 }
