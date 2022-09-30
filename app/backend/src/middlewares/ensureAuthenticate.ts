@@ -14,6 +14,7 @@ export default async function ensureAuthenticated(
     request.user = { id, email };
     return next();
   } catch (err) {
-    throw new AppError('Invalid token', 401);
+    console.log(err);
+    throw new AppError('Token must be a valid token', 401);
   }
 }

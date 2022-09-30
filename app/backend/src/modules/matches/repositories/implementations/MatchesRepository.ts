@@ -6,6 +6,19 @@ import { IMatchesRepository, IRequest } from '../IMatchesRepository';
 export default class MatchesRepository implements IMatchesRepository {
   private _repository = MatchModel;
 
+  async create({
+    homeTeam, awayTeam, awayTeamGoals, homeTeamGoals,
+  }:IRequest): Promise<IMatches> {
+    const match = await this._repository.create(
+      { homeTeam, awayTeam, awayTeamGoals, homeTeamGoals },
+    );
+    return match;
+  }
+
+  async update(id: number): Promise<void> {
+    await this._repository.update({ inProgress: 0 }, { where: { id } });
+  }
+
   async findAll(): Promise<IMatches[]> {
     const matches = await this._repository.findAll({
       include: [
@@ -25,18 +38,5 @@ export default class MatchesRepository implements IMatchesRepository {
       ],
     });
     return matches;
-  }
-
-  async create({
-    homeTeam, awayTeam, awayTeamGoals, homeTeamGoals,
-  }:IRequest): Promise<IMatches> {
-    const match = await this._repository.create(
-      { homeTeam, awayTeam, awayTeamGoals, homeTeamGoals },
-    );
-    return match;
-  }
-
-  async update(id: number): Promise<void> {
-    await this._repository.update({ inProgress: 0 }, { where: { id } });
   }
 }
