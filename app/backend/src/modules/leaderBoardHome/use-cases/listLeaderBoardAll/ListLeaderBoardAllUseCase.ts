@@ -5,5 +5,6 @@ export default class ListLeaderBoardAllUseCase {
 
   async execute(): Promise<void> {
     const matchesHome = await this._leaderBoardRepository.findAllHome();
+    console.log(matchesHome);
   }
 }
