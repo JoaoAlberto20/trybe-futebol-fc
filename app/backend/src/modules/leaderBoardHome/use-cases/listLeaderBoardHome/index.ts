@@ -4,6 +4,6 @@ import ListLeaderBoardHomeUseCase from './ListLeaderBoardHomeUseCase';
 
 const leaderBoardRepository = new LeaderBoardRepository();
 const lisLeaderBoardHomeUseCase = new ListLeaderBoardHomeUseCase(leaderBoardRepository);
-const listLeaderBoardController = new ListLeaderBoardHomeController(lisLeaderBoardHomeUseCase);
+const listLeaderBoardHomeController = new ListLeaderBoardHomeController(lisLeaderBoardHomeUseCase);
 
-export default listLeaderBoardController;
+export default listLeaderBoardHomeController;

@@ -36,6 +36,9 @@ export default class LeaderBoard implements ILeaderBoard {
         if (match.homeTeamGoals === match.awayTeamGoals) {
           return acc + 1;
         }
+        if (match.homeTeamGoals < match.awayTeamGoals) {
+          return acc + 3;
+        }
         return acc;
       }, 0);
     return points;
