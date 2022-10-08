@@ -1,6 +1,6 @@
 import SortMatches from '../../../../utils/SortMatches';
 import { ILeaderBoard } from '../../dtos/ILeaderBoard';
-import LeaderBoard from '../../entities/LeaderBoard';
+import LeaderBoardAway from '../../entities/LeaderBoardAway';
 import { ILeaderBoardRepository } from '../../repositories/ILeaderBoardRepository';
 
 export default class ListLeaderBoardAwayUseCase {
@@ -10,7 +10,7 @@ export default class ListLeaderBoardAwayUseCase {
     const matches = await this._leaderBoardRepository.findAllAway();
 
     const data: ILeaderBoard[] = matches.map(({ teamName, matchesAway }) => {
-      const result = new LeaderBoard(teamName, matchesAway);
+      const result = new LeaderBoardAway(teamName, matchesAway);
       return {
         name: result.name,
         totalPoints: result.totalPoints,

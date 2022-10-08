@@ -2,7 +2,7 @@
 import { ILeaderBoard } from '../dtos/ILeaderBoard';
 import { IMatches } from '../dtos/IMatches';
 
-export default class LeaderBoard implements ILeaderBoard {
+export default class LeaderBoardHome implements ILeaderBoard {
   private _name: string;
   private _totalPoints: number;
   private _totalGames: number;
@@ -35,9 +35,6 @@ export default class LeaderBoard implements ILeaderBoard {
         }
         if (match.homeTeamGoals === match.awayTeamGoals) {
           return acc + 1;
-        }
-        if (match.homeTeamGoals < match.awayTeamGoals) {
-          return acc + 3;
         }
         return acc;
       }, 0);

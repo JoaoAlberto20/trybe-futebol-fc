@@ -1,6 +1,6 @@
 import SortMatches from '../../../../utils/SortMatches';
 import { ILeaderBoard } from '../../dtos/ILeaderBoard';
-import LeaderBoard from '../../entities/LeaderBoard';
+import LeaderBoardHome from '../../entities/LeaderBoardHome';
 import { ILeaderBoardRepository } from '../../repositories/ILeaderBoardRepository';
 
 export default class ListLeaderBoardHomeUseCase {
@@ -9,7 +9,7 @@ export default class ListLeaderBoardHomeUseCase {
     const matches = await this._matchesRepository.findAllHome();
 
     const data: ILeaderBoard[] = matches.map(({ teamName, matchesHome }) => {
-      const result = new LeaderBoard(teamName, matchesHome);
+      const result = new LeaderBoardHome(teamName, matchesHome);
       return {
         name: result.name,
         totalPoints: result.totalPoints,
