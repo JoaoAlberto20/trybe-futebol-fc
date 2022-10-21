@@ -1,5 +1,6 @@
 import GroupByLeaderBoar from '../../../../utils/groupByLeaderBoard';
 import SortLeaderBoard from '../../../../utils/SortLeaderBoard';
+import { ILeaderBoard } from '../../dtos/ILeaderBoard';
 import LeaderBoardAll from '../../entities/LeaderBoardAll';
 import ListLeaderBoardAwayUseCase from '../listLeaderBoardAway/ListLeaderBoardAwayUseCase';
 import ListLeaderBoardHomeUseCase from '../listLeaderBoardHome/ListLeaderBoardHomeUseCase';
@@ -10,7 +11,7 @@ export default class ListLeaderBoardAllUseCase {
     protected _leaderBoardHomeUseCase: ListLeaderBoardHomeUseCase,
   ) {}
 
-  async execute(): Promise<any> {
+  async execute(): Promise<ILeaderBoard[]> {
     const leaderBoardHome = await this._leaderBoardHomeUseCase.execute();
     const leaderBoardAway = await this._leaderBoardAwayUseCase.execute();
 
