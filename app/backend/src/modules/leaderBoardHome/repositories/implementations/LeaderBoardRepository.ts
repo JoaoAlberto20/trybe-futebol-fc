@@ -1,6 +1,6 @@
 import MatchModel from '../../../../database/models/matches';
 import TeamModel from '../../../../database/models/teams';
-import { IMappersMatchesAway, IMappersMatchesHome } from '../../dtos/IMappersMatches';
+import { IMappersMatches } from '../../dtos/IMappersMatches';
 import { ILeaderBoardRepository } from '../ILeaderBoardRepository';
 
 export default class LeaderBoardRepository implements ILeaderBoardRepository {
@@ -10,17 +10,22 @@ export default class LeaderBoardRepository implements ILeaderBoardRepository {
     this._repository = TeamModel;
   }
 
-  async findAllHome(): Promise<IMappersMatchesHome[]> {
-    const matches = await this._repository.findAll({
+  async findHome(): Promise<IMappersMatches[]> {
+    const matchesHome = await this._repository.findAll({
       include: [{ model: MatchModel, as: 'matchesHome', where: { inProgress: 0 } }],
     });
-    return matches as unknown as IMappersMatchesHome[];
+    console.log(matchesHome);
+    return matchesHome.map((match: any) => ({
+      teamName: match.teamName, matches: match.matchesHome,
+    })) as unknown as IMappersMatches[];
   }
 
-  async findAllAway(): Promise<IMappersMatchesAway[]> {
-    const matches = await this._repository.findAll({
+  async findAway(): Promise<IMappersMatches[]> {
+    const matchesAway = await this._repository.findAll({
       include: [{ model: MatchModel, as: 'matchesAway', where: { inProgress: 0 } }],
     });
-    return matches as unknown as IMappersMatchesAway[];
+    return matchesAway.map((match: any) => ({
+      teamName: match.teamName, matches: match.matchesAway,
+    })) as unknown as IMappersMatches[];
   }
 }

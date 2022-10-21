@@ -1,4 +1,4 @@
-import SortMatches from '../../../../utils/SortMatches';
+import SortLeaderBoard from '../../../../utils/SortLeaderBoard';
 import { ILeaderBoard } from '../../dtos/ILeaderBoard';
 import LeaderBoardAway from '../../entities/LeaderBoardAway';
 import { ILeaderBoardRepository } from '../../repositories/ILeaderBoardRepository';
@@ -7,10 +7,9 @@ export default class ListLeaderBoardAwayUseCase {
   constructor(private _leaderBoardRepository: ILeaderBoardRepository) {}
 
   async execute(): Promise<ILeaderBoard[]> {
-    const matches = await this._leaderBoardRepository.findAllAway();
-
-    const data: ILeaderBoard[] = matches.map(({ teamName, matchesAway }) => {
-      const result = new LeaderBoardAway(teamName, matchesAway);
+    const matchesAway = await this._leaderBoardRepository.findAway();
+    const data: ILeaderBoard[] = matchesAway.map(({ teamName, matches }) => {
+      const result = new LeaderBoardAway(teamName, matches);
       return {
         name: result.name,
         totalPoints: result.totalPoints,
@@ -24,7 +23,7 @@ export default class ListLeaderBoardAwayUseCase {
         efficiency: result.efficiency,
       };
     });
-    const leaderBoard = SortMatches(data);
+    const leaderBoard = SortLeaderBoard(data);
     return leaderBoard;
   }
 }

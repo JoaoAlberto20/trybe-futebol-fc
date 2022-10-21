@@ -1,6 +1,6 @@
 import { ILeaderBoard } from '../modules/leaderBoardHome/dtos/ILeaderBoard';
 
-export default function SortMatches(leaderBoard: ILeaderBoard[]) {
+export default function SortLeaderBoard(leaderBoard: ILeaderBoard[]) {
   return leaderBoard.sort((a, b) => {
     if (a.totalPoints > b.totalPoints) return -1;
     if (a.totalPoints < b.totalPoints) return 1;

@@ -1,13 +1,7 @@
 import { IMatches } from './IMatches';
 
-export interface IMappersMatchesHome {
+export interface IMappersMatches {
   id: number
   teamName: string
-  matchesHome: IMatches[]
-}
-
-export interface IMappersMatchesAway {
-  id: number
-  teamName: string
-  matchesAway: IMatches[]
+  matches: IMatches[]
 }
