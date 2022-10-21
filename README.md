@@ -43,6 +43,28 @@ Essa é a minha **Obra Prima**, me dediquei muito a construir o front-end, e ele
 
 ## 🚀 Como executar o projeto.
 
+<br />
+
+Este projeto é divido em duas partes:
+1. Backend (API)
+2. Frontend
+
+💡O Backend deve estar rodando em sua máquina para que o frontend seja renderizado
+
+<br />
+
+### Pré-requisitos
+
+<br />
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+<br />
+
+### 🎲 Rodando o Back End (servidor)
+<br />
+
 ```bash
 
 # Clone este repositório
@@ -67,9 +89,17 @@ $ npm run compose:down  # para parar completamente a aplicação
 $ cd app/backend
 $ npm run test:
 
-# O servidor inciará na porta:6006 - acesse <  http://localhost:6006 >
+# O servidor inciará na porta:3001 - acesse <  http://localhost:3001 >
 
 ```
+<br />
+#### 🎲 Rodando a aplicação (Frontend)
+
+```bash
+# Para acessar o frontend basta acessar o seu localhost na url
+# O servidor inciará na porta:3000 - acesse <  http://localhost:3000/ >
+```
+
 ---
 
 <br />
