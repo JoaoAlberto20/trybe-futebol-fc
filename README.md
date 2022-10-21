@@ -31,6 +31,7 @@ A partir de uma aplicação Front-End desenvolvida pela _[Trybe](https://www.bet
 
 <br />
 <div id="components" />
+
 ## Qual é o diferencial deste código Diferencial
 
 Essa é a minha **Obra Prima**, me dediquei muito a construir o front-end, e ele foi feito com perfeição, usando um único handler de erro capaz de administrar erros de vários tipos, foi feito completamente em Typescript pensando em escalabilidade, todo código é extremamente legível e resumido, todas as funções são bem framentadas por necessidade, toda estrutura do Back-end feita em MSC é pensada para o código principal só rodar depois de todas as validações passarem, de fato, uma obra de arte.
